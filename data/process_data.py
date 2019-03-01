@@ -37,7 +37,8 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
-    pass  
+    engine = create_engine('sqlite:///DisasterDataTable.db')
+    df.to_sql('DisasterDataTable', engine, index=False)  
 
 
 def main():
