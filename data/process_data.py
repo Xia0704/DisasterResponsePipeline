@@ -18,8 +18,23 @@ def load_data(messages_filepath, categories_filepath):
     return df
 
 def clean_data(df):
-    pass
-
+    '''
+    input:
+        df: The dataframe of merged data
+    output:
+        df: Cleaned dataset
+    '''
+    categories = df['categories'].str.split(";",expand=True)
+    row = categories.iloc[0]
+    category_colnames = row.apply(lambda r : r[:-2])
+    categories.columns = category_colnames
+    for column in categories:
+        categories[column] = categories[column].apply(lambda r : r[-1:])
+        categories[column] = categories[column].astype(int)
+    df = df.drop(['categories'],axis=1)
+    df = pd.concat([df,categories],axis=1)
+    df = df[df.duplicated() == False]
+    return df
 
 def save_data(df, database_filename):
     pass  
