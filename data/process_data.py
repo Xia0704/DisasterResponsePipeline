@@ -13,7 +13,7 @@ def load_data(messages_filepath, categories_filepath):
         df: The dataframe of merged data
     '''
     messages = pd.read_csv(messages_filepath)
-    categories = pd.read_csv("categories.csv")
+    categories = pd.read_csv(categories_filepath)
     df = pd.merge(messages,categories,on="id")
     return df
 
