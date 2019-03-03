@@ -88,11 +88,11 @@ def build_model():
     return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
-    y_pred = cv.predict(X_test)
+    y_pred = model.predict(X_test)
     y_pred = pd.DataFrame(y_pred)
     #y_test.shape
-    for i in range(y_test.shape[1]):
-        print(accuracy_score(y_test.iloc[:,i], y_pred.iloc[:,i]))
+    for i in range(Y_test.shape[1]):
+        print(accuracy_score(Y_test.iloc[:,i], y_pred.iloc[:,i]))
 
 
 def save_model(model, model_filepath):
