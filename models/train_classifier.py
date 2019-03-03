@@ -84,8 +84,8 @@ def build_model():
               'clf__estimator__min_samples_leaf': [1, 2, 4],
               'clf__estimator__max_depth': [10, 20, None]
               }
-    cv = GridSearchCV(pipeline, param_grid=parameters,return_train_score=False)
-    return cv
+    cv_model = GridSearchCV(pipeline, param_grid=parameters,return_train_score=False)
+    return cv_model
 
 def evaluate_model(model, X_test, Y_test, category_names):
     y_pred = model.predict(X_test)
