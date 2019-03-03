@@ -37,6 +37,11 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
+    '''
+    input:
+        df: The dataframe of merged data
+        database_filename: The path where the data is stored to
+    '''
     engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('DisasterDataTable', engine, index=False)  
 

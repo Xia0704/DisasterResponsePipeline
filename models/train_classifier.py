@@ -88,14 +88,27 @@ def build_model():
     return cv_model
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    '''
+    input:
+       model: Trained model
+       X_test: Message list of test data
+       Y_test: Label of test data
+       category_names: Category names
+    '''
     y_pred = model.predict(X_test)
     y_pred = pd.DataFrame(y_pred)
-    #y_test.shape
     for i in range(Y_test.shape[1]):
-        print(accuracy_score(Y_test.iloc[:,i], y_pred.iloc[:,i]))
+        print('------------------------------------------------------\n')
+        print('FEATURE: {}\n'.format(category_names[i]))
+        print(classification_report(Y_test.iloc[:,i], y_pred.iloc[:,i]))
 
 
 def save_model(model, model_filepath):
+    '''
+    input:
+        model: Trained model
+        model_filepath: The path to save model
+    '''
     joblib.dump(model, model_filepath)
 
 
