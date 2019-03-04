@@ -4,25 +4,20 @@
 This project analyzes disaster data from Figure Eight to build a model for an API that classifies disaster messages to different categories.
 
 ### File Description
-`
-- app
-| - template
-| |- master.html  # main page of web app
-| |- go.html  # classification result page of web app
-|- run.py  # Flask file that runs app
+    .
+    ├── app     
+    │   ├── run.py                           # File to run app
+    │   └── templates   
+    │       ├── go.html                     
+    │       └── master.html                   
+    ├── data                   
+    │   ├── disaster_categories.csv          # Categories data
+    │   ├── disaster_messages.csv            # Messages data
+    │   └── process_data.py                  # Data cleaning
+    ├── models
+    │   └── train_classifier.py             # ML training        
+    └── README.md    
 
-- data
-|- disaster_categories.csv  # data to process 
-|- disaster_messages.csv  # data to process
-|- process_data.py
-|- InsertDatabaseName.db   # database to save clean data to
-
-- models
-|- train_classifier.py
-|- classifier.pkl  # saved model 
-
-- README.md
-`
 
 
 ### Instructions:
