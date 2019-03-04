@@ -4,6 +4,7 @@
 This project analyzes disaster data from Figure Eight to build a model for an API that classifies disaster messages to different categories.
 
 ### File Description
+`
 - app
 | - template
 | |- master.html  # main page of web app
@@ -21,7 +22,7 @@ This project analyzes disaster data from Figure Eight to build a model for an AP
 |- classifier.pkl  # saved model 
 
 - README.md
-
+`
 
 
 ### Instructions:
